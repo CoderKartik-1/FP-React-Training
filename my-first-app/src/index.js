@@ -12,17 +12,22 @@ import UpdateClockComponent from "./classes/UpdatedClassComponent.jsx";
 import UpdateCounterComponent from "./classes/UpdateCounterComponent.jsx";
 import ArrowFunctionComponent from "./classes/ArrowFunctionComponent.jsx";
 import UpdateCounter from "./hooks/UpdateCounter.jsx";
+import WorkingWithCounterState from "./hooks/WorkingWithCounter.jsx";
+import MultipleStateVariables from "./hooks/MultipleStateVariables.js";
+// import StockDataComponent from "./hooks/StockDataComponentCopy.js";
+// import StockDataComponent from "./hooks/StockDataList.js";
+import InputFormComponent from "./hooks/InputFormComponent.js";
 
-var userName = "Sample"
-var userDesignation = "VP";
+// var userName = "Sample"
+// var userDesignation = "VP";
 
-var employeeDetails = {
-    salary: 2000,
-    bonus: 1000
+// var employeeDetails = {
+//     salary: 2000,
+//     bonus: 1000
 
-}
+// }
 
-var arr = [10, 20, 30]
+// var arr = [10, 20, 30]
 
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //     // <div>
@@ -56,7 +61,11 @@ ReactDOM.createRoot(document.getElementById("root")).render((
         {/* <UpdateClockComponent userName = "Kartik Gupta"></UpdateClockComponent> */}
         {/* <UpdateCounterComponent></UpdateCounterComponent> */}
         {/* <ArrowFunctionComponent></ArrowFunctionComponent> */}
-        {/* <UpdateCounter></UpdateCounter> */}
-        <DisplayTimeComponent></DisplayTimeComponent>
+         {/* <UpdateCounter></UpdateCounter> 
+        <DisplayTimeComponent></DisplayTimeComponent> */}
+        {/* <WorkingWithCounterState></WorkingWithCounterState> */}
+        {/* <MultipleStateVariables></MultipleStateVariables> */}
+        {/* <StockDataComponent></StockDataComponent> */}
+        <InputFormComponent></InputFormComponent>
     </section>
 ))
