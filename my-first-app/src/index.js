@@ -16,7 +16,11 @@ import WorkingWithCounterState from "./hooks/WorkingWithCounter.jsx";
 import MultipleStateVariables from "./hooks/MultipleStateVariables.js";
 // import StockDataComponent from "./hooks/StockDataComponentCopy.js";
 // import StockDataComponent from "./hooks/StockDataList.js";
-import InputFormComponent from "./hooks/InputFormComponent.js";
+// import InputFormComponent from "./hooks/InputFormComponent.js";
+import GrandParents from "./appHooks/ContextUsage.jsx";
+import EmployeeDetails from "./appHooks/EmployeeDetails.jsx";
+import OtherHooksComponent from "./appHooks/OtherHooks.jsx";
+import StockData from "./appHooks/CustomHooks.jsx";
 
 // var userName = "Sample"
 // var userDesignation = "VP";
@@ -55,7 +59,7 @@ import InputFormComponent from "./hooks/InputFormComponent.js";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render((
-    <section>
+    <>
         {/* <ReactComponent {...userInfo}></ReactComponent> */}
         {/* <IterationComponent></IterationComponent> */}
         {/* <UpdateClockComponent userName = "Kartik Gupta"></UpdateClockComponent> */}
@@ -66,6 +70,10 @@ ReactDOM.createRoot(document.getElementById("root")).render((
         {/* <WorkingWithCounterState></WorkingWithCounterState> */}
         {/* <MultipleStateVariables></MultipleStateVariables> */}
         {/* <StockDataComponent></StockDataComponent> */}
-        <InputFormComponent></InputFormComponent>
-    </section>
+        {/* <InputFormComponent></InputFormComponent> */}
+        {/* <GrandParents></GrandParents> */}
+        {/* <EmployeeDetails></EmployeeDetails> */}
+        {/* <OtherHooksComponent></OtherHooksComponent> */}
+        <StockData></StockData>
+    </>
 ))
