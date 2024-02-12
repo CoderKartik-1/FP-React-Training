@@ -21,6 +21,8 @@ import GrandParents from "./appHooks/ContextUsage.jsx";
 import EmployeeDetails from "./appHooks/EmployeeDetails.jsx";
 import OtherHooksComponent from "./appHooks/OtherHooks.jsx";
 import StockData from "./appHooks/CustomHooks.jsx";
+import { HrComponent, DirectorComponent, ManagerComponent } from "./appHooks/HigherOrderComponents.js";
+import UsingMemoFunction from "./otherHooks/usingUseMemo.js";
 
 // var userName = "Sample"
 // var userDesignation = "VP";
@@ -58,7 +60,7 @@ import StockData from "./appHooks/CustomHooks.jsx";
 // }
 
 
-ReactDOM.createRoot(document.getElementById("root")).render((
+ReactDOM.createRoot(document.getElementById("root")).render(
     <>
         {/* <ReactComponent {...userInfo}></ReactComponent> */}
         {/* <IterationComponent></IterationComponent> */}
@@ -72,8 +74,12 @@ ReactDOM.createRoot(document.getElementById("root")).render((
         {/* <StockDataComponent></StockDataComponent> */}
         {/* <InputFormComponent></InputFormComponent> */}
         {/* <GrandParents></GrandParents> */}
-        {/* <EmployeeDetails></EmployeeDetails> */}
         {/* <OtherHooksComponent></OtherHooksComponent> */}
-        <StockData></StockData>
+        {/* <StockData></StockData> */}
+        {/* <HrComponent></HrComponent>
+        <ManagerComponent></ManagerComponent>
+        <DirectorComponent></DirectorComponent> */}
+        {/* <UsingMemoFunction></UsingMemoFunction> */}
+        <EmployeeDetails ></EmployeeDetails>
     </>
-))
+)

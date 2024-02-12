@@ -1,30 +1,60 @@
-import details from "./employees.json";
 import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import AddPersonLayout from "./AddEmployee";
+import FilterEmployeeList from "./FilterEmployeeList";
+import EmployeeInfo from "./EmployeeInfo";
 
 
 export default function EmployeeDetails() {
-    var [employeeList, setEmployeeList] = useState(details); 
-    
-    function removePerson(idx){
-        var newEmps = employeeList.filter(employee => employee.id != idx);
-        setEmployeeList(newEmps);
+    var [employeeList, setEmployeeList] = useState([]); 
+    var [filteredList, setFilteredList] = useState([]);
+
+    useEffect(() => {
+        updateEmployeeOnScreen()
+    }, [])
+
+    function updateEmployeeOnScreen() {
+        axios.get("http://localhost:3000/employees").then((response) => {
+            setEmployeeList(response.data)
+            setFilteredList(response.data)
+        })
     }
     
+    //delete
+    function removePerson(idx){
+        // var newEmps = employeeList.filter(employee => employee.id != idx);
+        // setEmployeeList(newEmps);
+        //Employee list has entire list of employees
+        axios.delete("http://localhost:3000/employees/" + idx)
+        .then(() => {
+            alert("Emp deleted with id: "+idx)
+            updateEmployeeOnScreen();
+        })
+    }
+
+    function filterEmployee(filterText){
+        var filteredList = [];
+        if (filterText == "") {
+            filteredList = employeeList;
+        }
+        else{
+            filteredList = employeeList.filter((employee) => {
+                return employee.name.indexOf(filterText) > -1;
+            })
+        }
+        setFilteredList(filteredList);
+    }
+
     return (
         <>
-            {employeeList.map((employee) => {
-                return (
-                    <div className="card" style={{ width: "18rem", display: "inline-block", margin: "10px", padding: "10px" }}>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRYWiJM9gMrv5z-T0IH7AIU0jk8NXRmTYhYGfpobi3ew&s" className="card-img-top" alt="Image" />
-                        <div className="card-body">
-                            <h5 className="card-title">{employee.name}</h5>
-                            <p className="card-text">Employee Created On: {employee.createdAt}.</p>
-                            <input className="btn btn-primary" type="button" value="Delete" onClick={() => removePerson(employee.id)} />
-                        </div>
-                    </div>
+            <h1> The list of employees ({employeeList.length}) is given below: </h1>
+            <AddPersonLayout updateEmployeeOnScreen = {updateEmployeeOnScreen}></AddPersonLayout>
+            <FilterEmployeeList filterEmployee = {filterEmployee}></FilterEmployeeList>
+            {filteredList.map((employee) => {
+                return(
+                    <EmployeeInfo {...employee} removePerson = {removePerson}></EmployeeInfo>
                 )
             })}
         </>
     )
 }
-

@@ -18,7 +18,7 @@ export default function GrandParents() {
                 <h1>This is Grand Parents</h1>
                 <h6>My surName is {details.surName}</h6>
                 <h6>My City is {details.city}</h6><hr />
-                <Parents details={details} setDetails={setDetails}></Parents>
+                <Parents></Parents>
             </UserDetailsContext.Provider>
         </div>
     )
